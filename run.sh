@@ -279,6 +279,7 @@ run_bootstrap()
     fi
 
     curl -u ${CATTLE_ACCESS_KEY}:${CATTLE_SECRET_KEY} -s ${CATTLE_URL}/scripts/bootstrap > $SCRIPT
+    cat /tmp/bootstrap.sh
 
     # Sanity check if this account is really being authenticated as an agent account or the default admin auth
     if curl -f -u ${CATTLE_ACCESS_KEY}:${CATTLE_SECRET_KEY} -s ${CATTLE_URL}/schemas/account >/dev/null 2>&1; then

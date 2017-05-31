@@ -16,8 +16,7 @@ ENV GOPATH /go
 ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
 RUN go get github.com/rancher/agent
 RUN cd $GOPATH/src/github.com/rancher/agent && go build && go install
-RUN /var/lib/cattle/pyagent/agent
-RUN cd $GOPATH/src/github.com/rancher/agent && ls -la 
+RUN cd $GOPATH/src/github.com/rancher/agent && ls -la
 
 RUN chmod +x /run.sh /register.py /resolve_url.py
 ENTRYPOINT ["/run.sh"]

@@ -5,7 +5,7 @@ RUN apt-get update && \
 	build-essential \
 	git \
 	wget
-COPY register.py resolve_url.py run.sh 
+COPY register.py resolve_url.py run.sh /
 RUN wget https://storage.googleapis.com/golang/go1.7.5.linux-armv6l.tar.gz
 RUN tar -xvf go1.7.5.linux-armv6l.tar.gz -C /usr/local
 ENV PATH /usr/local/go/bin:$PATH

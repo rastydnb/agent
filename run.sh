@@ -3,7 +3,7 @@ set -e
 
 trap "exit 1" SIGINT SIGTERM
 
-export AGENT_CONF_FILE="/var/lib/rancher/etc/agent.conf"
+export AGENT_CONF_FILE="ca"
 export CA_CERT_FILE="/var/lib/rancher/etc/ssl/ca.crt"
 
 # This is copied from common/scripts.sh, if there is a change here
@@ -264,6 +264,7 @@ register()
 run_bootstrap()
 {
     SCRIPT=/tmp/bootstrap.sh
+    cat /tmp/bootstrap.sh
     touch $SCRIPT
     chmod 700 $SCRIPT
 

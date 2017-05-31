@@ -19,7 +19,6 @@ RUN cd $GOPATH/src/github.com/rancher/agent && go build && go install
 RUN mkdir /var/lib/cattle/pyagent
 RUN cd $GOPATH/src/github.com/rancher/agent && cp apply.sh /var/lib/cattle/pyagent/apply.sh
 RUN cp /go/bin/agent /var/lib/cattle/pyagent/agent
-RUN cat /var/lib/rancher/etc/agent.conf
 
 RUN chmod +x /run.sh /register.py /resolve_url.py
 ENTRYPOINT ["/run.sh"]

@@ -19,7 +19,9 @@ RUN mkdir /var/lib/cattle/pyagent
 RUN cd $GOPATH/src/github.com/rancher/agent && cp apply.sh /var/lib/cattle/pyagent/apply.sh
 RUN cp /go/bin/agent /var/lib/cattle/pyagent/agent
 
-RUN chmod +x /run.sh /register.py /resolve_url.py
+
+ADD bootstrap.sh /tmp/bootstrap.sh
+RUN chmod +x /run.sh /register.py /resolve_url.py /tmp/bootstrap.sh
 ENTRYPOINT ["/run.sh"]
 LABEL "io.rancher.container.system"="rancher-agent"
 ENV RANCHER_AGENT_IMAGE rancher/agent:v1.2.2

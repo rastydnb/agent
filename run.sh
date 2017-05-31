@@ -264,7 +264,6 @@ register()
 run_bootstrap()
 {
     SCRIPT=/tmp/bootstrap.sh
-    cat /tmp/bootstrap.sh
     touch $SCRIPT
     chmod 700 $SCRIPT
 

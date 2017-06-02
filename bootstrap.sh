@@ -71,7 +71,7 @@ EOF
 start_agent()
 {
     mkdir -p /var/lib/cattle/pyagent
-    cd $GOPATH/src/github.com/rancher/agent && cp apply.sh /var/lib/cattle/pyagent/apply.sh && cp /go/bin/agent /var/lib/cattle/pyagent/agent
+    cd $GOPATH/src/github.com/rancher/agent && cp apply.sh /var/lib/cattle/pyagent/apply.sh && cp /go/bin/agent /var/lib/cattle/pyagent/agent && chmod +x /var/lib/cattle/pyagent/apply.sh
 
 
     local main=${CATTLE_HOME}/pyagent/apply.sh

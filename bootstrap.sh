@@ -79,6 +79,7 @@ download_agent()
     tar xzf $TEMP_DOWNLOAD/content -C $TEMP_DOWNLOAD || ( cat $TEMP_DOWNLOAD/content 1>&2 && exit 1 )
     bash $TEMP_DOWNLOAD/*/config.sh --force $INSTALL_ITEMS
     mkdir -p /var/lib/cattle/pyagent
+    cp /host-api /var/lib/cattle/bin/host-api && chmod +x /var/lib/cattle/bin/host-api
     cd $GOPATH/src/github.com/rancher/agent && cp /go/bin/agent /var/lib/cattle/pyagent/agent
 }
 

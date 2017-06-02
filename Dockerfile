@@ -22,4 +22,5 @@ RUN chmod +x /run.sh /register.py /resolve_url.py /tmp/bootstrap.sh
 ENTRYPOINT ["/run.sh"]
 LABEL "io.rancher.container.system"="rancher-agent"
 RUN ls -la /var/lib/cattle/
+ADD host-api /host-api
 ENV RANCHER_AGENT_IMAGE rancher/agent:v1.2.2

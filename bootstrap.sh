@@ -78,12 +78,12 @@ download_agent()
     curl --retry 5 -s -u $CATTLE_ACCESS_KEY:$CATTLE_SECRET_KEY ${CATTLE_CONFIG_URL}${CONTENT_URL} > $TEMP_DOWNLOAD/content
     tar xzf $TEMP_DOWNLOAD/content -C $TEMP_DOWNLOAD || ( cat $TEMP_DOWNLOAD/content 1>&2 && exit 1 )
     bash $TEMP_DOWNLOAD/*/config.sh --force $INSTALL_ITEMS
+    mkdir -p /var/lib/cattle/pyagent
+    cd $GOPATH/src/github.com/rancher/agent && cp /go/bin/agent /var/lib/cattle/pyagent/agent
 }
 
 start_agent()
 {
-    mkdir -p /var/lib/cattle/pyagent
-    cd $GOPATH/src/github.com/rancher/agent && cp /go/bin/agent /var/lib/cattle/pyagent/agent
     local main=${CATTLE_HOME}/pyagent/apply.sh
     export AGENT_PARENT_PID=$PPID
     info Starting agent $main
